@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth's Sobriety Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#FEE6C0',
+                            DEFAULT: '#FFA94D',
+                            dark: '#FF8C00',
+                        },
+                        secondary: {
+                            light: '#FFF5EB',
+                            dark: '#E67C00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .funny-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .milestone-card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        .comment-box {
+            transition: all 0.3s ease;
+        }
+        .comment-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-secondary-light min-h-screen">
+    <!-- Header -->
+    <header class="bg-primary-dark text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-2">Parth's Sobriety Journey</h1>
+            <p class="text-xl">This time, I'm really going to do it! 🎉</p>
+            <div class="mt-4 funny-float">
+                <i class="fas fa-glass-whiskey text-4xl opacity-50"></i>
+                <i class="fas fa-ban text-4xl text-red-500 absolute ml-[-28px] mt-1"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Countdown Section -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-8 text-center">
+            <h2 class="text-3xl font-bold text-primary-dark mb-4">Current Sober Streak</h2>
+            <div class="flex justify-center items-center space-x-4 mb-4">
+                <div class="bg-primary-light rounded-lg p-4 w-24">
+                    <div class="text-4xl font-bold" id="days">0</div>
+                    <div class="text-sm">Days</div>
+                </div>
+                <div class="bg-primary-light rounded-lg p-4 w-24">
+                    <div class="text-4xl font-bold" id="hours">0</div>
+                    <div class="text-sm">Hours</div>
+                </div>
+                <div class="bg-primary-light rounded-lg p-4 w-24">
+                    <div class="text-4xl font-bold" id="minutes">0</div>
+                    <div class="text-sm">Minutes</div>
+                </div>
+                <div class="bg-primary-light rounded-lg p-4 w-24">
+                    <div class="text-4xl font-bold" id="seconds">0</div>
+                    <div class="text-sm">Seconds</div>
+                </div>
+            </div>
+            <p class="text-lg text-primary-dark">Since my last drink on June 12, 2025 at 1:45 AM IST</p>
+            <div class="mt-4">
+                <p class="text-lg font-semibold" id="funny-message">Starting the journey... one step at a time!</p>
+            </div>
+            <div class="mt-6">
+                <img src="https://media.giphy.com/media/l0HU7JI9BMhaxNoQE/giphy.gif" alt="Celebration gif" class="mx-auto h-32 rounded-lg">
+            </div>
+        </section>
+
+        <!-- Milestones Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-primary-dark mb-6 text-center">Sobriety Milestones</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Milestone 1 -->
+                <div class="milestone-card bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl cursor-pointer" data-days="1">
+                    <div class="bg-primary-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-primary-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2">1 Day Sober</h3>
+                    <p class="text-gray-600">"The hangover is gone! Now what do I do with all this free time?"</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" id="day1-status">Upcoming</span>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="milestone-card bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl cursor-pointer" data-days="7">
+                    <div class="bg-primary-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-umbrella-beach text-primary-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2">1 Week Sober</h3>
+                    <p class="text-gray-600">"I've saved enough money to buy... more sparkling water!"</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" id="week1-status">Upcoming</span>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="milestone-card bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl cursor-pointer" data-days="14">
+                    <div class="bg-primary-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dumbbell text-primary-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2">2 Weeks Sober</h3>
+                    <p class="text-gray-600">"My liver is starting to forgive me. Slowly."</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" id="week2-status">Upcoming</span>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="milestone-card bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl cursor-pointer" data-days="30">
+                    <div class="bg-primary-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-check text-primary-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2">1 Month Sober</h3>
+                    <p class="text-gray-600">"I can now remember what I did last weekend. Novel experience!"</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" id="month1-status">Upcoming</span>
+                    </div>
+                </div>
+
+                <!-- Milestone 5 -->
+                <div class="milestone-card bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl cursor-pointer" data-days="60">
+                    <div class="bg-primary-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-piggy-bank text-primary-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2">2 Months Sober</h3>
+                    <p class="text-gray-600">"My bank account is looking healthier than I am!"</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" id="month2-status">Upcoming</span>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="milestone-card bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl cursor-pointer" data-days="365">
+                    <div class="bg-primary-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-primary-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary-dark mb-2">1 Year Sober</h3>
+                    <p class="text-gray-600">"I should throw a party to celebrate! (With mocktails, obviously)"</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" id="year1-status">Upcoming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-primary-dark mb-6 text-center">Support from Friends</h2>
+            <p class="text-center text-lg mb-6">Leave a message for Parth to help him stay on track!</p>
+            
+            <!-- Comment Form -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <form id="comment-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name (optional)</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-dark focus:ring focus:ring-primary-light focus:ring-opacity-50 p-2 border">
+                        </div>
+                        <div>
+                            <label for="avatar" class="block text-sm font-medium text-gray-700">Avatar (optional)</label>
+                            <select id="avatar" name="avatar" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-dark focus:ring focus:ring-primary-light focus:ring-opacity-50 p-2 border">
+                                <option value="">Select an avatar</option>
+                                <option value="🥳">🥳 Party</option>
+                                <option value="💪">💪 Strong</option>
+                                <option value="🦸">🦸 Hero</option>
+                                <option value="🦁">🦁 Lion</option>
+                                <option value="🐢">🐢 Steady</option>
+                                <option value="🌈">🌈 Rainbow</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                        <textarea id="message" name="message" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-dark focus:ring focus:ring-primary-light focus:ring-opacity-50 p-2 border" required></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-primary-dark text-white px-4 py-2 rounded-md hover:bg-primary-dark/90 focus:outline-none focus:ring-2 focus:ring-primary-dark focus:ring-opacity-50">
+                            Post Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Comments Display -->
+            <div id="comments-container" class="space-y-4">
+                <!-- Sample comments will be added here by JavaScript -->
+                <div class="comment-box bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-start">
+                        <div class="text-3xl mr-4">💪</div>
+                        <div>
+                            <div class="font-semibold text-primary-dark">Anonymous</div>
+                            <div class="text-gray-600">You got this, Parth! One day at a time.</div>
+                            <div class="text-sm text-gray-400 mt-2">Just now</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun Facts Section -->
+        <section class="bg-primary-light rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-primary-dark mb-4 text-center">Fun Sobriety Facts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg p-4 text-center">
+                    <i class="fas fa-money-bill-wave text-3xl text-green-500 mb-2"></i>
+                    <h3 class="font-bold">Money Saved So Far</h3>
+                    <p id="money-saved">₹0</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center">
+                    <i class="fas fa-heartbeat text-3xl text-red-500 mb-2"></i>
+                    <h3 class="font-bold">Health Benefits</h3>
+                    <p id="health-benefits">Starting soon!</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center">
+                    <i class="fas fa-brain text-3xl text-blue-500 mb-2"></i>
+                    <h3 class="font-bold">Brain Power</h3>
+                    <p id="brain-power">Rebooting...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>Parth's Sobriety Journey - Powered by Willpower, Family & Friends</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="text-white hover:text-primary-light"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-white hover:text-primary-light"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-white hover:text-primary-light"><i class="fab fa-facebook text-xl"></i></a>
+            </div>
+            <p class="mt-4 text-sm">Remember: "Sobriety delivers what alcohol promises"</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set the date we're counting down from (June 12, 2025 1:45 AM IST)
+        const lastDrinkDate = new Date("June 12, 2025 01:45:00 GMT+0530");
+        
+        // Update the countdown every 1 second
+        const x = setInterval(function() {
+            // Get current date and time in IST
+            const now = new Date();
+            
+            // Calculate difference in milliseconds
+            const diff = now - lastDrinkDate;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            // Update funny messages based on days sober
+            updateFunnyMessage(days);
+            
+            // Update milestone statuses
+            updateMilestoneStatuses(days);
+            
+            // Update fun facts
+            updateFunFacts(days);
+            
+        }, 1000);
+        
+        function updateFunnyMessage(days) {
+            const messages = [
+                {days: 0, msg: "Starting the journey... one step at a time!"},
+                {days: 1, msg: "Made it through Day 1! The hangover is gone!"},
+                {days: 2, msg: "Two days! I can almost taste the... sparkling water!"},
+                {days: 3, msg: "Three days! My liver is starting to forgive me."},
+                {days: 4, msg: "Four days sober! Who knew mornings could be so... morning?"},
+                {days: 5, msg: "Five days! I've saved enough for a fancy coffee!"},
+                {days: 6, msg: "Almost a week! My bank account is looking healthier than I am."},
+                {days: 7, msg: "One week! I should throw a party! (With mocktails)"},
+                {days: 14, msg: "Two weeks! I can now remember what I did last weekend."},
+                {days: 21, msg: "Three weeks! My skin is glowing like a sober unicorn."},
+                {days: 30, msg: "One month! I've gained approximately 47 hours of productivity."},
+                {days: 60, msg: "Two months! I could buy a small island with all the money I've saved."},
+                {days: 90, msg: "Three months! My brain is working at 110% capacity."},
+                {days: 180, msg: "Six months! I'm basically a superhero now."},
+                {days: 365, msg: "One year sober! Should I throw a party? (With mocktails, obviously)"}
+            ];
+            
+            let currentMsg = "Keep going! You're doing amazing!";
+            for (let i = messages.length - 1; i >= 0; i--) {
+                if (days >= messages[i].days) {
+                    currentMsg = messages[i].msg;
+                    break;
+                }
+            }
+            
+            document.getElementById("funny-message").innerHTML = currentMsg;
+        }
+        
+        function updateMilestoneStatuses(days) {
+            const milestones = [
+                {id: "day1-status", days: 1, text: "Achieved!", emoji: "🎉"},
+                {id: "week1-status", days: 7, text: "Achieved!", emoji: "🏖️"},
+                {id: "week2-status", days: 14, text: "Achieved!", emoji: "💪"},
+                {id: "month1-status", days: 30, text: "Achieved!", emoji: "📅"},
+                {id: "month2-status", days: 60, text: "Achieved!", emoji: "💰"},
+                {id: "year1-status", days: 365, text: "Achieved!", emoji: "🏆"}
+            ];
+            
+            milestones.forEach(milestone => {
+                const element = document.getElementById(milestone.id);
+                if (days >= milestone.days) {
+                    element.textContent = `${milestone.emoji} ${milestone.text}`;
+                    element.className = "inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm";
+                } else {
+                    const daysLeft = milestone.days - days;
+                    element.textContent = `${daysLeft} days to go`;
+                    element.className = "inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm";
+                }
+            });
+        }
+        
+        function updateFunFacts(days) {
+            // Money saved (assuming ₹800 per day)
+            const moneySaved = days * 800;
+            document.getElementById("money-saved").textContent = `₹${moneySaved.toLocaleString()}`;
+            
+            // Health benefits
+            let healthMsg = "Starting soon!";
+            if (days >= 1) healthMsg = "No hangover! 🎉";
+            if (days >= 3) healthMsg = "Better sleep 😴";
+            if (days >= 7) healthMsg = "Clearer skin ✨";
+            if (days >= 14) healthMsg = "More energy ⚡";
+            if (days >= 30) healthMsg = "Healthier liver 🏥";
+            if (days >= 60) healthMsg = "Weight loss possible ⚖️";
+            if (days >= 90) healthMsg = "Reduced cancer risk 🎗️";
+            document.getElementById("health-benefits").textContent = healthMsg;
+            
+            // Brain power
+            let brainMsg = "Rebooting...";
+            if (days >= 1) brainMsg = "Less foggy 🌫️";
+            if (days >= 3) brainMsg = "Clearer thoughts 💭";
+            if (days >= 7) brainMsg = "Better memory 🧠";
+            if (days >= 14) brainMsg = "Improved focus 🔍";
+            if (days >= 30) brainMsg = "Enhanced creativity 🎨";
+            if (days >= 60) brainMsg = "Superbrain activated 🦸";
+            document.getElementById("brain-power").textContent = brainMsg;
+        }
+        
+        // Comment form handling
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value || 'Anonymous';
+            const avatar = document.getElementById('avatar').value || '💬';
+            const message = document.getElementById('message').value;
+            
+            if (message.trim() === '') return;
+            
+            // Create new comment element
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment-box bg-white rounded-xl shadow-lg p-6';
+            commentDiv.innerHTML = `
+                <div class="flex items-start">
+                    <div class="text-3xl mr-4">${avatar}</div>
+                    <div>
+                        <div class="font-semibold text-primary-dark">${name}</div>
+                        <div class="text-gray-600">${message}</div>
+                        <div class="text-sm text-gray-400 mt-2">Just now</div>
+                    </div>
+                </div>
+            `;
+            
+            // Add to top of comments container
+            const commentsContainer = document.getElementById('comments-container');
+            commentsContainer.insertBefore(commentDiv, commentsContainer.firstChild);
+            
+            // Reset form
+            document.getElementById('message').value = '';
+        });
+        
+        // Add hover effects to milestone cards
+        document.querySelectorAll('.milestone-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const days = parseInt(this.getAttribute('data-days'));
+                const currentDays = parseInt(document.getElementById('days').textContent);
+                
+                if (currentDays >= days) {
+                    alert(`Parth has already achieved this ${days}-day milestone! 🎉`);
+                } else {
+                    const daysLeft = days - currentDays;
+                    alert(`Only ${daysLeft} more days to reach this milestone! Keep going! 💪`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
